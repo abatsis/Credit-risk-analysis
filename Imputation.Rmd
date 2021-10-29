@@ -1,0 +1,30 @@
+We start by reading our data.
+
+```{r}
+df <- read.csv(file = '/home/abatsis/Downloads/credit risk.csv')
+head(df)
+```
+
+We use the mice package to impute missing values. 
+
+```{R}
+library(mice)
+init = mice(df, maxit=0) 
+meth = init$method
+predM = init$predictorMatrix
+predM[, c("clientid")]=0
+set.seed(103)
+imputed = mice(df, predictorMatrix=predM, m=25)
+df <- complete(imputed)
+```
+
+We check that the updated data frame has no missing values. 
+
+```{r}
+any(is.na(df))
+```
+Finally we export the update data frame.
+
+```{r}
+write.csv(df,'/home/abatsis/Downloads/credit risk imputed.csv', row.names = FALSE)
+```
