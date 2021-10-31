@@ -1,3 +1,3 @@
 # Credit-risk-analysis
 
-In this project we perform credit risk analysis using logistic regression and random forest modelling and compare them. We build our models in Python. Before building our models handle missing values using the MICE R-package. The dataset we used was downloaded from Kaggle. 
+In this project we build a logistic regression model and a random forest model for credit risk analysis. We use confusion matrix, roc curve and ks statistic to compare the performance of the two models. Before using our data sets we use the MICE package from R to impute the data. The dataset was downloaded from Kaggle https://www.kaggle.com/upadorprofzs/credit-risk.
